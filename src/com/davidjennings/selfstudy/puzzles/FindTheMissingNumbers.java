@@ -44,9 +44,9 @@ public class FindTheMissingNumbers
     }
 
 
-	public static void main(String[] args)
-	{
-		// write your code here
+    public static void main(String[] args)
+    {
+        // write your code here
         printMissingNumbers(new int[] {6,7,8,10,12,13}, 1, 100);
-	}
+    }
 }
