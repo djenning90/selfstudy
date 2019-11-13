@@ -1,7 +1,5 @@
-package com.davidjennings.selfstudy.misc;
+package com.davidjennings.selfstudy.puzzles;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
