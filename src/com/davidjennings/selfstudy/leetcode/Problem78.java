@@ -58,9 +58,7 @@ public class Problem78
     {
         Problem78 p = new Problem78();
 
-        List<List<Integer>> results;
-
-        results = p.subsets(new int[]{1, 2, 3});
+        List<List<Integer>> results = p.subsets(new int[]{1, 2, 3});
 
         for (List<Integer> result : results)
         {
