@@ -29,26 +29,26 @@ public class Probllem47
         return results;
     }
 
-    private void permute(int[] problem, int pos, List<Integer> partialResult, List<List<Integer>> results)
+    private void permute(int[] input, int i, List<Integer> partialResult, List<List<Integer>> results)
     {
         // Base case: if partial result is complete
-        if (pos == problem.length)
+        if (i == input.length)
             results.add(new ArrayList<Integer>(partialResult));     // add copy of complete result
-            // Else split up the problem.
+            // Else split up the input.
         else
         {
-            // Consider subproblems defined by problem starting at pos
+            // Consider subproblems defined by input starting at pos
             // Which is simply each value from pos to the end of the string + the remaining values
-            for (int k=pos; k<problem.length; k++)
+            for (int k=i; k<input.length; k++)
             {
-                int val = problem[k];
+                int val = input[k];
                 // Consider a variant where number k comes first. Do by swapping!
-                swap(problem, pos, k);      // make element k come first (preserve current value)
+                swap(input, i, k);      // make element k come first (preserve current value)
                 // Handle subproblem
                 partialResult.add(val);
-                permute(problem, pos + 1, partialResult, results);    // use bigger partialResults
+                permute(input, i + 1, partialResult, results);    // use bigger partialResults
                 partialResult.remove(partialResult.size() - 1);      // put things back
-                swap(problem, pos, k);      // put things back
+                swap(input, i, k);      // put things back
             }
         }
     }
