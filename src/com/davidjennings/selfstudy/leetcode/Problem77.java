@@ -38,26 +38,31 @@ public class Problem77
         return results;
     }
 
-    public void subproblem(int[] input, int i, int k, List<Integer> subproblem, List<List<Integer>> results)
+    public void subproblem(int[] input, int i, int k, List<Integer> partialResult, List<List<Integer>> results)
     {
-        // Base cases
-        if (subproblem.size() == k)
+        // Base case:
+        // Subproblem is a complete result, so save it.
+        if (partialResult.size() == k)
         {
             // Add a copy because we're still permuting it.
-            results.add(new ArrayList<>(subproblem));
+            results.add(new ArrayList<>(partialResult));
         }
+        // All input has been exhausted.
         else if (i == input.length)
+        {
             return;
-        // Recursive cases
+        }
+        // Recursive case:
+        // Try remainder of input both excluding and including i
         else
         {
             // Exclude i
-            subproblem(input, i+1, k, subproblem, results);
+            subproblem(input, i+1, k, partialResult, results);
 
             // Include i
-            subproblem.add(input[i]);
-            subproblem(input, i+1, k, subproblem, results);
-            subproblem.remove(subproblem.size() - 1);
+            partialResult.add(input[i]);
+            subproblem(input, i+1, k, partialResult, results);
+            partialResult.remove(partialResult.size() - 1);
         }
     }
 
