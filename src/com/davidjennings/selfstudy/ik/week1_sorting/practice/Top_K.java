@@ -1,6 +1,7 @@
 package com.davidjennings.selfstudy.ik.week1_sorting.practice;
 
-import java.util.*;
+import java.util.Iterator;
+import java.util.TreeSet;
 
 public class Top_K
 {

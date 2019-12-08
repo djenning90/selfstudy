@@ -1,6 +1,7 @@
 package com.davidjennings.selfstudy.ik.week1_sorting.practice;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Lexicographical_Order
 {

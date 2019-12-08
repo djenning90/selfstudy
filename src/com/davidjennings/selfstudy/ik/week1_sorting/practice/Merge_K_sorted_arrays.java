@@ -1,6 +1,8 @@
 package com.davidjennings.selfstudy.ik.week1_sorting.practice;
 
-import java.util.*;
+import java.util.Collections;
+import java.util.PriorityQueue;
+import java.util.Scanner;
 
 public class Merge_K_sorted_arrays
 {
