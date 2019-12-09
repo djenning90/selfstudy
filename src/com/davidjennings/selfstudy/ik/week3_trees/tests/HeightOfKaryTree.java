@@ -1,11 +1,196 @@
 package com.davidjennings.selfstudy.ik.week3_trees.tests;
 
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.HashMap;
+import java.util.Scanner;
+import java.util.Vector;
 
+/**
+ * Height Of K-Ary Tree
+ *
+ *
+ *
+ * Problem Statement:
+ *
+ *
+ *
+ * Given a k-ary tree T, containing N nodes. You have to find height of the tree. (Length of the longest path from
+ * root to any node.)
+ *
+ *
+ *
+ * (We are looking for number of edges on longest path from root to any node, not number of nodes on longest path
+ * from root to any node.)
+ *
+ *
+ *
+ * Definition from Wikipedia: A k-ary tree is a rooted tree in which each node has no more than k children. A binary
+ * tree is the special case where k=2.
+ *
+ *
+ *
+ * Input/Output Format For The Function:
+ *
+ *
+ *
+ * Input Format:
+ *
+ *
+ *
+ * There is only one argument denoting the root of the k-ary tree.
+ *
+ *
+ *
+ * From any node, you can access all its children using node's property named children, which is an array of nodes.
+ *
+ *
+ *
+ * For 3-ary tree:
+ *
+ * 1 is the root of the tree.
+ *
+ * 2's parent is 1.
+ *
+ * 3's parent is 1.
+ *
+ * 5's parent is 1.
+ *
+ * 4's parent is 5.
+ *
+ *
+ *
+ * children of node 1 = [node 2, node 3, node 5].
+ *
+ * children of node 2 = [].
+ *
+ * children of node 3 = [].
+ *
+ * children of node 4 = [].
+ *
+ * children of node 5 = [node 4].
+ *
+ *
+ *
+ * Look at the comment in the code editor, to know implementation details of the node, in your preferred language.
+ *
+ *
+ *
+ * Output Format:
+ *
+ *
+ *
+ * Return an integer hmax, denoting height of the k-ary tree.
+ *
+ *
+ *
+ * Input/Output Format For The Custom Input:
+ *
+ *
+ *
+ * Input Format:
+ *
+ *
+ *
+ * The first line of input should contain an integer k, denoting that input tree is an k-ary tree T.
+ *
+ * In next line, there should be an integer (N-1), denoting no of edges in T. In next (N-1) lines, ith line should
+ * contain an integer from[i], denoting value at one endpoint of an edge.
+ *
+ * In next line, there should be an integer (N-1), denoting no of edges in T. In next (N-1) lines, ith line should
+ * contain an integer to[i], denoting value at other endpoint of an edge.
+ *
+ *
+ *
+ * If k = 3, N = 5, from = [1, 1, 1, 5] and to = [3, 2, 5, 4], then input should be:
+ *
+ *
+ *
+ * 3
+ *
+ * 4
+ *
+ * 1
+ *
+ * 1
+ *
+ * 1
+ *
+ * 5
+ *
+ * 4
+ *
+ * 3
+ *
+ * 2
+ *
+ * 5
+ *
+ * 4
+ *
+ *
+ *
+ * Output Format:
+ *
+ *
+ *
+ * There will be one line of output, containing an integer hmax, denoting the result returned by solution function.
+ *
+ *
+ *
+ * For input k = 3, N = 5, from = [1, 1, 1, 5] and to = [3, 2, 5, 4], output will be:
+ *
+ *
+ *
+ * 2
+ *
+ *
+ *
+ * Constraints:
+ *
+ * 1 <= N <= 10^5
+ * 0 <= k <= N - 1
+ *
+ *
+ * Sample Test Case:
+ *
+ *
+ *
+ * Sample Input:
+ *
+ *
+ *
+ * 3-ary tree:
+ *
+ * 1 is the root of the tree.
+ *
+ * 2's parent is 1.
+ *
+ * 3's parent is 1.
+ *
+ * 5's parent is 1.
+ *
+ * 4's parent is 5.
+ *
+ *
+ *
+ * Sample Output:
+ *
+ *
+ *
+ * 2
+ *
+ *
+ *
+ * Explanation:
+ *
+ *
+ *
+ * Given a 3-ary tree with 5 nodes. Node 1 has 3 children 2, 3 and 5, and node 5 has one child 4.
+ *
+ * Longest path from root is 1 -> 5 -> 4 and it's length is 2.
+ */
 public class HeightOfKaryTree
 {
     static class TreeNode

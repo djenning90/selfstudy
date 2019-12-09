@@ -7,6 +7,166 @@ import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.Stack;
 
+/**
+ * Post-order Traversal of a Tree Without Recursion
+ *
+ *
+ *
+ * Problem Statement:
+ *
+ *
+ *
+ * Write a function to traverse a binary tree Post-order, without using recursion.
+ *
+ *
+ *
+ * e.g. for a tree that's
+ *
+ * ../../../../../Desktop/Screen%20Shot%202019-01-20%20at%2010.4
+ *
+ *
+ *
+ * Return:
+ *
+ * [4, 5, 2, 6, 7, 3, 1]
+ *
+ *
+ *
+ * Input/Output Format For The Function:
+ *
+ *
+ *
+ * Input format:
+ *
+ *
+ *
+ * There is only one argument named root denoting the root of the input tree.
+ *
+ *
+ *
+ * Output format:
+ *
+ *
+ *
+ * Return an array containing the node values in post-order traversal of the tree.
+ *
+ *
+ *
+ * Input/Output Format For The Custom Input:
+ *
+ *
+ *
+ * Input Format:
+ *
+ *
+ *
+ * line number 1: <noOfNodes> denoting number of nodes of the tree.
+ *
+ * line number 2: <noOfNdoes space seprated integers> denoting the values of the nodes. Please make sure there are
+ * not leading or trailing spaces and between two integers there must be a single space.
+ *
+ * line number 3: <rootIndex> denoting the root of the tree. value of rootIndex must be between -1 to noOfNodes-1
+ *
+ * line number 4: <noOfEdges> denoting the number of edges of the tree
+ *
+ * next noOfEdges line: <parentNodeIndex><space><childNodeIndex><space><leftOrRightFlag>
+ *
+ * Here <parentNodeIndex> and <childNodeIndex> are the node indexes ranging from 0 to noOfNodes-1. <leftOrRighFlag>
+ *     is either "L" or "R" (without quotes) denoting the left or right child where "L" stands for left child and "R"
+ *     stands for right child.
+ *
+ *
+ *
+ * Raw input of sample:
+ *
+ * 5
+ *
+ * 1 2 3 4 5
+ *
+ * 0
+ *
+ * 4
+ *
+ * 0 1 L
+ *
+ * 0 2 R
+ *
+ * 1 3 L
+ *
+ * 1 4 R
+ *
+ *
+ *
+ * Output Format:
+ *
+ *
+ *
+ * Space separated integer denoting the values in postorder traversal.
+ *
+ *
+ *
+ * Raw output of sample:
+ *
+ * 4 5 2 3 1
+ *
+ *
+ *
+ *
+ *
+ * Constraints:
+ *
+ *
+ *
+ * 0 <= number of nodes <= 100000
+ * 1 <= values stored in the nodes <= 10^9
+ *
+ *
+ * Sample Test Case:
+ *
+ *
+ *
+ * Sample Input:
+ *
+ *
+ *
+ * ../../../../../Desktop/Screen%20Shot%202019-01-20%20at%2010.5
+ *
+ *
+ *
+ * Sample Output:
+ *
+ *
+ *
+ * 4 5 2 3 1
+ *
+ *
+ *
+ * Explanation:
+ *
+ *
+ *
+ * There are 5 nodes in the tree. As post-order traversal sequence is left_node -> right_node -> parent_node, so from
+ * root (1) it goes to left node (2). Left node has two children. So, it goes to left (4) again which is a leaf node.
+ * Print the content of this node. Go to parent’s right (5) node which is also a leaf node. Print the content and go
+ * back to parent (2) node, print the content and go back to its parent (1). Repeat this process for right side and
+ * print the root node (1) at last.
+ *
+ *
+ *
+ * Tree node structure:
+ *
+ *
+ *
+ * Class TreeNode {
+ *
+ * int val;
+ *
+ * TreeNode left_ptr;
+ *
+ * TreeNode right_ptr;
+ *
+ * }
+ */
 public class PostOrderTraversalWithoutRecursion
 {
     enum Order
